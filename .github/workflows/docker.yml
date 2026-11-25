@@ -18,6 +18,8 @@ jobs:
       matrix:
         shard: [1, 2, 3, 4]
     steps:
+      - uses: actions/checkout@v7
+
       - name: Setup Monorepo
         uses: ./.github/actions/setup
 
@@ -41,6 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy Docker Image
     steps:
+      - uses: actions/checkout@v7
       - name: Setup Monorepo
         uses: ./.github/actions/setup
 

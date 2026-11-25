@@ -3,7 +3,6 @@ description: Setup the monorepo environment including Node and PNPM
 runs: 
   using: "composite"
   steps:
-    - uses: actions/checkout@v7
     - uses: pnpm/action-setup@v6
       with:
         version: 10
