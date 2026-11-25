@@ -1,0 +1,8 @@
+name: Setup Python
+description: Setup Python environment
+runs: 
+  using: "composite"
+  steps:
+    - uses: actions/setup-python@v7
+      with:
+        python-version: 3.x
