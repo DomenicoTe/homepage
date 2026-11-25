@@ -84,3 +84,5 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
           platforms: linux/amd64,linux/arm64
           build-args: CI=true
+          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:buildcache,mode=max

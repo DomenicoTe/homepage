@@ -16,7 +16,9 @@
 **/compose*
 **/Dockerfile*
 **/node_modules
+!.next/standalone
 !.next/standalone/node_modules
+!.next/static
 **/npm-debug.log
 **/obj
 **/secrets.dev.yaml
