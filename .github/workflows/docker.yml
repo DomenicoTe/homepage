@@ -44,8 +44,12 @@ jobs:
     name: Deploy Docker Image
     steps:
       - uses: actions/checkout@v7
+      
       - name: Setup Monorepo
         uses: ./.github/actions/setup
+
+      - name: Build Application
+        run: pnpm build
 
       - name: Docker Login
         uses: docker/login-action@v4
@@ -79,5 +83,6 @@ jobs:
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
           platforms: linux/amd64,linux/arm64
+          build-args: CI=true
           cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:buildcache,mode=max
